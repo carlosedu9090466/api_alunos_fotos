@@ -10,6 +10,7 @@ npx sequelize db:seed:all
 npm run dev
 
 
+
 Para MySQL/MariaDB as configurações são:
 
 require('dotenv').config();
