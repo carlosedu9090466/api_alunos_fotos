@@ -64,13 +64,17 @@ class UserController {
   // DELETE
   async delete(req, res) {
     try {
-      const { id } = req.params;
+      if (!req.params.id) {
+        return res.status(400).json({
+          errors: ['ID não enviado'],
+        });
+      }
       // recebendo os dados do usuário direto do banco
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(req.params.id);
 
       if (!user) {
         return res.status(400).json({
-          errors: ['Usuário consta na base de dados!'],
+          errors: ['Usuário não existe!'],
         });
       }
 

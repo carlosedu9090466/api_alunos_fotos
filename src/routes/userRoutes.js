@@ -17,7 +17,7 @@ router.post('/', userController.store);
 // update
 router.put('/', loginRequired, userController.update);
 // delete
-router.delete('/', loginRequired, userController.delete);
+router.delete('/:id', loginRequired, userController.delete);
 export default router;
 
 /*
